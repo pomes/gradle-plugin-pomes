@@ -19,8 +19,8 @@ dependencies {
 }
 
 pluginBundle {
-    website = 'https://github.com/pomes/gradle-plugin-pomes'
-    vcsUrl = 'https://github.com/pomes/gradle-plugin-pomes'
+    website = 'https://github.com/pomes/gradle-plugin-props'
+    vcsUrl = 'https://github.com/pomes/gradle-plugin-props'
     description = 'Small plugin to read properties file(s) into the project structure'
     plugins {
         propsPlugin {
