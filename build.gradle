@@ -1,0 +1,28 @@
+plugins {
+    id 'idea'
+    id 'eclipse'
+    id 'groovy'
+    id 'java-gradle-plugin'
+    id "com.gradle.plugin-publish" version "0.9.5"
+}
+
+repositories {
+    jcenter()
+}
+
+group 'com.github.pomes.gradle-plugins'
+version '0.1.0-SNAPSHOT'
+wrapper.gradleVersion = '2.14.1'
+
+pluginBundle {
+    website = 'https://github.com/pomes/gradle-plugin-pomes'
+    vcsUrl = 'https://github.com/pomes/gradle-plugin-pomes'
+    description = 'Small plugin to read properties file(s) into rootProject.ext.'
+    plugins {
+        propsPlugin {
+            id = 'com.github.pomes.gradle.props'
+            displayName = 'Properties reader plugin'
+            tags = ['properties']
+        }
+    }
+}
