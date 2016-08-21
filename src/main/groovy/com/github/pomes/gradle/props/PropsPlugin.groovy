@@ -17,6 +17,7 @@
 package com.github.pomes.gradle.props
 
 import groovy.util.logging.Slf4j
+import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -33,11 +34,12 @@ class PropsPlugin implements Plugin<Project> {
 
         propertyFiles.each { PropertyFile prop ->
             if (!prop.sourceFile.exists()) {
-                log.debug "Could not find the requested properties file: ${prop.sourceFile}"
+                throw new GradleException("Could not find the requested properties file: ${prop.sourceFile}")
             } else {
                 prop.sourceFile.withInputStream { stream ->
                     prop.properties.load(stream)
                 }
+                log.info "Read the properties file: ${prop.sourceFile}"
             }
         }
         project.extensions.propertyFiles = propertyFiles
